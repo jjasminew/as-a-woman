@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.7.1/aframe.min.js"></script>
+    <script>
+      AFRAME.registerComponent('play-pause', {
+        init: function(){
+          var myVideo = document.querySelector('#darkWalk');
+          var videoControls = document.querySelector('#videoControls');
+          this.el.addEventListener('click', function() {
+            if (myVideo.paused){
+              myVideo.play();
+              videoControls.setAttribute('src', '#pause');
+            } else {
+              myVideo.pause();
+              videoControls.setAttribute('src', '#play');
+            }
+          });
+        }
+      });
+    </script>
   </head>
   <body>
     <a-scene>
       <a-assets>
-        <video id="darkWalk" src="video.MP4" autoplay></video>
+        <img id="play" src="play.png">
+        <img id="pause" src="pause.png">
+        <video id="darkWalk" src="video.MP4" loop="true"></video>
       </a-assets>
 
+      <a-camera>
+        <a-entity cursor position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.008; radiusOuter: 0.012"
+          material="color: #FFFFFF; shader: flat;">
+        </a-entity>
+      </a-camera>
+
       <a-videosphere src="#darkWalk" rotation="-5 -90 0"></a-videosphere>
+
+      <a-image id="videoControls" src="#play" position="0 1 -2" scale="0.2 0.2 1" play-pause></a-image>
+
     </a-scene>
   </body>
 </html>
