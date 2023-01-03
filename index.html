@@ -7,17 +7,77 @@
         init: function(){
           var myVideo = document.querySelector('#darkWalk');
           var videoControls = document.querySelector('#videoControls');
+          var titleAnimation = document.querySelector('#title');
+          var textAnimation1 = document.querySelector('#text1');
+          var textAnimation2 = document.querySelector('#text2');
+          var textAnimation3 = document.querySelector('#text3');
+          var textAnimation4 = document.querySelector('#text4');
+          var textAnimation5 = document.querySelector('#text5');
+          var textAnimation6 = document.querySelector('#text6');
+          var textAnimationBack1 = document.querySelector('#textback1');
+          var textAnimationBack2 = document.querySelector('#textback2');
+          var textAnimationBack3 = document.querySelector('#textback3');
+          var textAnimationBack4 = document.querySelector('#textback4');
+          var textAnimationBack5 = document.querySelector('#textback5');
+          var textAnimationBack6 = document.querySelector('#textback6');
+          function animation1(){
+            textAnimation1.setAttribute('visible', 'true');
+            textAnimationBack1.setAttribute('visible', 'true');
+          }
+          function animation2(){
+            textAnimation1.setAttribute('visible', 'false');
+            textAnimationBack1.setAttribute('visible', 'false');
+            textAnimation2.setAttribute('visible', 'true');
+            textAnimationBack2.setAttribute('visible', 'true');
+          }
+          function animation3(){
+            textAnimation2.setAttribute('visible', 'false');
+            textAnimationBack2.setAttribute('visible', 'false');
+            textAnimation3.setAttribute('visible', 'true');
+            textAnimationBack3.setAttribute('visible', 'true');
+          }
+          function animation4(){
+            textAnimation3.setAttribute('visible', 'false');
+            textAnimationBack3.setAttribute('visible', 'false');
+            textAnimation4.setAttribute('visible', 'true');
+            textAnimationBack4.setAttribute('visible', 'true');
+          }
+          function animation5(){
+            textAnimation4.setAttribute('visible', 'false');
+            textAnimationBack4.setAttribute('visible', 'false');
+            textAnimation5.setAttribute('visible', 'true');
+            textAnimationBack5.setAttribute('visible', 'true');
+          }
+          function animation6(){
+            textAnimation5.setAttribute('visible', 'false');
+            textAnimationBack5.setAttribute('visible', 'false');
+            textAnimation6.setAttribute('visible', 'true');
+            textAnimationBack6.setAttribute('visible', 'true');
+          }
+          function reset(){
+            myVideo.pause();
+            textAnimation6.setAttribute('visible', 'false');
+            textAnimationBack6.setAttribute('visible', 'false');
+            videoControls.setAttribute('visible', 'true');
+            titleAnimation.setAttribute('opacity', '1');
+          }
           this.el.addEventListener('click', function() {
             if (myVideo.paused){
               myVideo.play();
-              videoControls.setAttribute('src', '#pause');
-            } else {
-              myVideo.pause();
-              videoControls.setAttribute('src', '#play');
+              videoControls.setAttribute('visible', 'false');
+              titleAnimation.setAttribute('opacity', '0');
+              setTimeout(animation1, 38000);
+              setTimeout(animation2, 42500);
+              setTimeout(animation3, 46800);
+              setTimeout(animation4, 50500);
+              setTimeout(animation5, 54500);
+              setTimeout(animation6, 59900);
+              setTimeout(reset, 63500);
             }
           });
         }
       });
+      
     </script>
   </head>
   <body>
@@ -28,6 +88,8 @@
         <video id="darkWalk" src="video.mp4" loop="true"></video>
       </a-assets>
 
+      <a-text id="title" color="white" value="As A Woman" align="center" width="50" position="0 6 -15"></a-text>
+      
       <a-camera>
         <a-entity cursor position="0 0 -1"
           geometry="primitive: ring; radiusInner: 0.008; radiusOuter: 0.012"
@@ -35,10 +97,36 @@
         </a-entity>
       </a-camera>
 
-      <a-videosphere src="#darkWalk" rotation="-5 -90 0"></a-videosphere>
+      <a-videosphere src="#darkWalk" rotation="-2 -97 0"></a-videosphere>
 
-      <a-image id="videoControls" src="#play" position="0 1 -2" scale="0.2 0.2 1" play-pause></a-image>
+      <a-image id="videoControls" src="#play" position="0 1.1 -2" scale="0.2 0.2 1" play-pause></a-image>
 
+      <a-text id="text1" visible="false" value="A quarter of a million women are reported missing every year in the US with many cases connected to male violence." align="center" width="20" position="0 2 -15"></a-text>
+
+      <a-text id="textback1" visible="false" value="A quarter of a million women are reported missing every year in the US with many cases connected to male violence." align="center" width="20" position="0 2 15" rotation="0 180 0"></a-text>
+      
+      <a-text id="text2" visible="false" value="Over 50% of women feel unsafe walking alone at night because of the fear of being sexually harassed or assaulted." align="center" width="20" position="0 2 -15"></a-text>
+
+      <a-text id="textback2" visible="false" value="Over 50% of women feel unsafe walking alone at night because of the fear of being sexually harassed or assaulted." align="center" width="20" position="0 2 15" rotation="0 180 0"></a-text>
+
+      <a-text id="text3" visible="false" value="Women are told that they are the cause of the violence they receive when the root of the problem is men." align="center" width="20" position="0 2 -15"></a-text>
+
+       <a-text id="textback3" visible="false" value="Women are told that they are the cause of the violence they receive when the root of the problem is men." align="center" width="20" position="0 2 15" rotation="0 180 0"></a-text>
+
+      <a-text id="text4" visible="false" value="Adding more street lights, CCTV cameras, and telling women to protect themselves better will not stop misogyny." align="center" width="20" position="0 2 -15"></a-text>
+
+      <a-text id="textback4" visible="false" value="Adding more street lights, CCTV cameras, and telling women to protect themselves better will not stop misogyny." align="center" width="20" position="0 2 15" rotation="0 180 0"></a-text>
+
+      <a-text id="text5" visible="false" value="Men need to fix their misogynistic behavior. They need to realize that the violence exists and that it is gendered: 99% of rape and sexual assault perpetrators are male." align="center" width="20" position="0 2 -15"></a-text>
+
+       <a-text id="textback5" visible="false" value="Men need to fix their misogynistic behavior. They need to realize that the violence exists and that it is gendered: 99% of rape and sexual assault perpetrators are male." align="center" width="20" position="0 2 15" rotation="0 180 0"></a-text>
+
+      <a-text id="text6" visible="false" value="Don't tell us, women, to change. Men must change and only then will violence against women end." align="center" width="20" position="0 2 -15"></a-text>
+
+       <a-text id="textback6" visible="false" value="Don't tell us, women, to change. Men must change and only then will violence against women end." align="center" width="20" position="0 2 15" rotation="0 180 0"></a-text>
+      
+    
+  
     </a-scene>
   </body>
 </html>
