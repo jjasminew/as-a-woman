@@ -71,8 +71,8 @@
               setTimeout(animation3, 46800);
               setTimeout(animation4, 50500);
               setTimeout(animation5, 54500);
-              setTimeout(animation6, 59900);
-              setTimeout(reset, 63500);
+              setTimeout(animation6, 60000);
+              setTimeout(reset, 64000);
             }
           });
         }
@@ -84,11 +84,10 @@
     <a-scene>
       <a-assets>
         <img id="play" src="play.png">
-        <img id="pause" src="pause.png">
         <video id="darkWalk" src="video.mp4" loop="true"></video>
       </a-assets>
-
-      <a-text id="title" color="white" value="As A Woman" align="center" width="50" position="0 6 -15"></a-text>
+      
+      <a-text id="title" font="aileronsemibold" color="white" value="As A Woman" align="center" width="70" position="0 6.9 -15"></a-text>
       
       <a-camera>
         <a-entity cursor position="0 0 -1"
@@ -99,7 +98,7 @@
 
       <a-videosphere src="#darkWalk" rotation="-2 -97 0"></a-videosphere>
 
-      <a-image id="videoControls" src="#play" position="0 1.1 -2" scale="0.2 0.2 1" play-pause></a-image>
+      <a-image id="videoControls" src="#play" position="0 1.6 -2" scale="0.2 0.2 1" play-pause></a-image>
 
       <a-text id="text1" visible="false" value="A quarter of a million women are reported missing every year in the US with many cases connected to male violence." align="center" width="20" position="0 2 -15"></a-text>
 
